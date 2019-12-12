@@ -1,0 +1,31 @@
+diff --git a/include/tlib.h b/include/tlib.h
+index 708bd2b..aa15362 100644
+--- a/include/tlib.h
++++ b/include/tlib.h
+@@ -3,6 +3,6 @@
+ 
+ #include <vector>
+ 
+-void vecAdd(std::vector<int> a, std::vector<int> b, std::vector<int>& c);
++void vecAdd(std::vector<int> &a, std::vector<int> &b, std::vector<int> &c);
+ 
+ #endif
+diff --git a/src/tlib.cc b/src/tlib.cc
+index 846893c..2fc7e74 100644
+--- a/src/tlib.cc
++++ b/src/tlib.cc
+@@ -1,8 +1,9 @@
+ #include "tlib.h"
+ 
+-void vecAdd(std::vector<int> a, std::vector<int> b, std::vector<int>& c) {
+-    // c = a+b;
+-    for(int i = 0; i<a.size() ;i++) {
+-        c.push_back(a[i]+ b[i]);
+-    }
++void vecAdd(std::vector<int> &a, std::vector<int> &b, std::vector<int> &c) {
++  // c = a+b;
++  c.reserve(a.size());
++  for (int i = 0; i < a.size(); i++) {
++    c.push_back(a[i] + b[i]);
++  }
+ }
