@@ -1,0 +1,2 @@
+clang++ bench.cc -isystem $BENCHMARK/include -L$BENCHMARK/lib -lbenchmark -pthread -o lr -I../include -L../build -ltlib
+compare.py  benchmarks ./lold ./lr

@@ -3,6 +3,6 @@
 
 #include <vector>
 
-void vecAdd(std::vector<int>& a, std::vector<int>& b, std::vector<int>& c);
+void vecAdd(std::vector<int> a, std::vector<int> b, std::vector<int>& c);
 
 #endif
