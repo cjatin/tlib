@@ -1,0 +1,7 @@
+make
+clang++ test/bench.cc -isystem $BENCHMARK/include -L$BENCHMARK/lib -lbenchmark -pthread -o lold -Iinclude -Lbuild -ltlib
+git apply optimizations.patch
+make
+clang++ test/bench.cc -isystem $BENCHMARK/include -L$BENCHMARK/lib -lbenchmark -pthread -o lnew -Iinclude -Lbuild -ltlib
+$BENCHMARK_TOOLS/compare.py  benchmarks ./lold ./lnew
+git reset HEAD --hard
