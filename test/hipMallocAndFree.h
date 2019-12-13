@@ -12,3 +12,25 @@ static void hipMallocAndFree(benchmark::State& state) {
 }
 // Register the function as a benchmark
 BENCHMARK(hipMallocAndFree);
+
+static void hipMallocAndCopyH2D(benchmark::State& state) {
+  // Perform setup here
+  for (auto _ : state) {
+    // This code gets timed
+    void *a;
+    hipMallocBenchCopyH2D(a);
+  }
+}
+// Register the function as a benchmark
+BENCHMARK(hipMallocAndCopyH2D);
+
+static void hipMallocAndCopyD2H(benchmark::State& state) {
+  // Perform setup here
+  for (auto _ : state) {
+    // This code gets timed
+    void *a;
+    hipMallocBenchCopyD2H(a);
+  }
+}
+// Register the function as a benchmark
+BENCHMARK(hipMallocAndCopyD2H);
