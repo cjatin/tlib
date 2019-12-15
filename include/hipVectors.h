@@ -17,4 +17,8 @@ void benchFloat4Mul(float4&, int, int);
 void benchFloat4Div(float4&, int, int);
 void benchFloat4Sub(float4&, int, int);
 
+void benchFloat2Swaps(float2&, int, int);
+void benchFloat3Swaps(float3&, int, int);
+void benchFloat4Swaps(float4&, int, int);
+
 #endif

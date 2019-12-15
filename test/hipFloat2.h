@@ -45,3 +45,14 @@ static void hipFloat2BenchSub(benchmark::State& state) {
 }
 // Register the function as a benchmark
 BENCHMARK(hipFloat2BenchSub);
+
+static void benchFloat2Swaps(benchmark::State& state) {
+    // Perform setup here
+    for (auto _ : state) {
+        // This code gets timed
+        float2 a;
+        benchFloat2Swaps(a, 300, 100);
+    }
+}
+// Register the function as a benchmark
+BENCHMARK(benchFloat2Swaps);
