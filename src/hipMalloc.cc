@@ -27,7 +27,8 @@ void hipMallocBenchCopyD2H(void* a) {
 }
 
 void hipDeviceF2A(void* aa) {
-    aa = new float2;
+    float2 t;
+    aa = (float2*)&(t);
     float2* a = (float2*)aa;
     float2* d_a;
     a->x = a->y = 2.12;
@@ -36,5 +37,33 @@ void hipDeviceF2A(void* aa) {
     auto f2k = fnadd<float2>;
     hipLaunchKernelGGL(f2k, 1, 1, 0, 0, d_a, d_a);
     hipMemcpy(a, d_a, sizeof(float2), hipMemcpyDeviceToHost);
+    hipFree(d_a);
+}
+
+void hipDeviceF3A(void* aa) {
+    float3 t;
+    aa = (float3*)&(t);
+    float3* a = (float3*)aa;
+    float3* d_a;
+    a->x = a->y = 2.12;
+    hipMalloc(&d_a, sizeof(float3));
+    hipMemcpy(d_a, a, sizeof(float3), hipMemcpyHostToDevice);
+    auto f2k = fnadd<float3>;
+    hipLaunchKernelGGL(f2k, 1, 1, 0, 0, d_a, d_a);
+    hipMemcpy(a, d_a, sizeof(float3), hipMemcpyDeviceToHost);
+    hipFree(d_a);
+}
+
+void hipDeviceF4A(void* aa) {
+    float4 t;
+    aa = (float4*)&(t);
+    float4* a = (float4*)aa;
+    float4* d_a;
+    a->x = a->y = 2.12;
+    hipMalloc(&d_a, sizeof(float4));
+    hipMemcpy(d_a, a, sizeof(float4), hipMemcpyHostToDevice);
+    auto f2k = fnadd<float4>;
+    hipLaunchKernelGGL(f2k, 1, 1, 0, 0, d_a, d_a);
+    hipMemcpy(a, d_a, sizeof(float4), hipMemcpyDeviceToHost);
     hipFree(d_a);
 }
