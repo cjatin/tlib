@@ -26,8 +26,9 @@ void hipMallocBenchCopyD2H(void* a) {
     delete[] h_a;
 }
 
-void hipDeviceF2A(void* a) {
-    a = new float2;
+void hipDeviceF2A(void* aa) {
+    aa = new float2;
+    float2* a = (float2*)aa;
     float2* d_a;
     a->x = a->y = 2.12;
     hipMalloc(&d_a, sizeof(float2));

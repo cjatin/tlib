@@ -7,5 +7,6 @@
 void hipMallocBench100(void* a);
 void hipMallocBenchCopyD2H(void* a);
 void hipMallocBenchCopyH2D(void* a);
+void hipDeviceF2A(void*);
 
 #endif

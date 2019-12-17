@@ -34,3 +34,14 @@ static void hipMallocAndCopyD2H(benchmark::State& state) {
 }
 // Register the function as a benchmark
 BENCHMARK(hipMallocAndCopyD2H);
+
+static void hipF2Add(benchmark::State& state) {
+  // Perform setup here
+  for (auto _ : state) {
+    // This code gets timed
+    void *a;
+    hipDeviceF2A(a);
+  }
+}
+// Register the function as a benchmark
+BENCHMARK(hipF2Add);
