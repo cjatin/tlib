@@ -57,13 +57,13 @@ static void hipF3Add(benchmark::State& state) {
 // Register the function as a benchmark
 BENCHMARK(hipF3Add);
 
-static void hipF3Add(benchmark::State& state) {
+static void hipF4Add(benchmark::State& state) {
     // Perform setup here
     for (auto _ : state) {
         // This code gets timed
         void* a;
-        hipDeviceF3A(a);
+        hipDeviceF4A(a);
     }
 }
 // Register the function as a benchmark
-BENCHMARK(hipF3Add);
+BENCHMARK(hipF4Add);
